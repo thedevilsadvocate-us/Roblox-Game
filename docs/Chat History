@@ -1,0 +1,389 @@
+This is the chat history between you and me over multiple sessions; it consists of your purpose and what you need to do next. Use it to gather information about where you should begin:
+
+
+Hi!
+
+
+Hi! I'm GitLab Duo Chat. I can see you're on the Roblox Game project. How can I help? I can review merge requests, investigate pipeline failures, work with issues and epics, explain code, and more.
+
+
+Can you help me create a roblox game?
+
+
+I can help with that! To point you in the right direction, a few quick questions:
+
+What kind of game? (obby, tycoon, simulator, roleplay, etc.)
+Experience level? Have you used Roblox Studio or Lua/Luau before?
+What do you want from this GitLab project? Common setups include:
+Storing your game scripts in version control using Rojo (a tool that syncs files from a repo into Roblox Studio)
+Tracking features and bugs with issues
+CI to lint/test your Luau code
+
+
+
+If you'd like, I can scaffold a starter project structure in this repo (Rojo config, folder layout, and some starter scripts for a simple game). Just tell me the game type and I'll get started.
+
+
+First, I want to make a complete blueprint of the game I want to make. I do not know exactly the game I want to make, but I do know what general area it will be in, which you can then use to generate an addictive and fun game for players: the game will be about doing a monotonous task over and over again for a long period of time to achieve one very large goal. Two notable examples of this are using a small bucket to drain a whole lake to find something such as your lost phone, and cleaning a whole library of 3000 books to reorganize everything. But the twist is that there will be many helpful upgrades for the user to purchase (using in-game currency for basic upgrades, or robux for extreme upgrades). This will allow the user to feel a sense of progression, and will keep them playing the game, making them get to the end goal much faster than the start. Once you finish with that, we will proceed from there.
+
+
+Here's a complete game blueprint. I've designed an original concept that combines the strongest hooks from your examples with proven Roblox retention mechanics.
+Game Concept: "Drain!"
+The Hook: You dropped your phone in a massive lake. Your only tool: a tiny rusty bucket. Drain the entire lake, one scoop at a time, to get it back. The lake holds 10,000,000 buckets of water, and as the water level visibly drops, the world transforms: sunken ships, hidden caves, treasure chests, and ancient secrets emerge from the depths.
+Why it works:
+
+One absurd, instantly understandable goal (great for thumbnails/virality: "I drained an ENTIRE LAKE")
+Constant visible progress: the water level is the progress bar, and everyone in the server can see it drop
+Discovery layered on monotony: every meter drained reveals new content, so the grind never feels empty
+
+Core Loop (30-second cycle)
+
+Scoop water with your bucket (tap/click or hold)
+Carry it to the dump zone (or auto-dump with upgrades)
+Earn Droplets (in-game currency) per bucket dumped
+Spend Droplets on upgrades → scoop faster, carry more, walk faster
+Water level drops → milestones unlock → repeat, but stronger
+
+Progression & Upgrades
+Droplet upgrades (in-game currency):
+
+Bucket tiers (15 tiers): Rusty Bucket (1 unit) → Steel Pail → Barrel → Bathtub → Tanker Truck → Industrial Pump (50,000 units/scoop)
+Capacity: carry multiple loads per trip
+Speed: walk speed, scoop speed, dump speed
+Auto-scoopers: idle drainage machines you place around the lake (pumps, windmills, drainage bots) that work even while you're offline (capped)
+Efficiency: chance of "Critical Scoop" (2x-10x water per scoop)
+
+Robux upgrades (extreme tier):
+
+Gamepasses: 2x Droplets, VIP Golden Bucket (permanent 3x scoop), Auto-Dump (no carrying), Extra Machine Slots, Teleport Pads
+Dev products: temporary boosts (2x for 30 min), instant Droplet packs, "Drain Bomb" (instantly removes 10,000 buckets, big visual explosion)
+Rule: everything Robux buys is also earnable free, just slower. This keeps free players engaged and paying players guilt-free.
+
+Milestone Discovery System (the retention engine)
+Every 10% drained reveals new content and permanently changes the map:
+
+
+
+Water level
+Reveal
+
+
+
+90%
+Old dock and rowboat (new scooping spot, 2x zone)
+
+
+75%
+Sunken pirate ship: treasure chests, first pet egg
+
+
+60%
+Underwater cave system opens: rare Droplet crystals
+
+
+40%
+Ancient statue emerges: lore hints about what else is down there
+
+
+25%
+Abandoned lab: unlock machine crafting
+
+
+10%
+The phone is visible... but it's sitting on a hatch
+
+
+0%
+You get your phone back. It rings. The hatch opens: a second, bigger lake below (prestige)
+
+
+Prestige ("Rebirth the Lake"): draining fully awards a permanent multiplier + exclusive cosmetics, then a new deeper lake (new biome: lava lake, frozen lake, toxic swamp) with 10x the water. Infinite scaling.
+Retention & Social
+
+Shared server progress: everyone drains the same lake together; server-wide milestone celebrations. Plus a personal lake (private, your own pace)
+Pets/companions: hatched from eggs found in the lakebed; they scoop alongside you
+Daily rewards, streaks, and quests ("Dump 500 buckets today")
+Leaderboards: total buckets all-time, fastest lake drain, richest player
+Limited-time events: "Flood Weekend" (lake refills 20%, but 5x Droplets)
+
+Aesthetic
+Bright, chunky, low-poly style (broad appeal, fast to build, performant). Satisfying juice everywhere: splash particles, screen shake on big dumps, number popups, sound design that makes each scoop feel rewarding.
+
+Want me to commit this blueprint to your repo as docs/GAME_DESIGN.md so we can iterate on it there? From that point we can move on to the technical plan (Rojo project structure, data model, monetization scripts).
+
+
+Okay, the examples I gave you just now were not for you to use for our game. They are games made by other people that are similar to the type of game I want to make now.
+
+
+Got it, those are existing games to avoid copying. Here are three original concepts in the same genre. Pick one (or mix elements) and I'll build the full blueprint around it:
+1. Mow the Kingdom 🌱
+A medieval kingdom is completely overgrown after 100 years of neglect. Armed with rusty shears, you cut every blade of grass, one snip at a time, to uncover the entire buried kingdom: roads, villages, a castle. Cleared zones visibly restore themselves (flowers bloom, NPCs return, buildings light up). Upgrades: shears → scythe → push mower → riding mower → robot mower fleet. End goal: fully restore the kingdom and be crowned.
+2. Untangle 🧶
+A cosmic cat has tangled the "Thread of the World" into one colossal knot the size of a mountain. You pull, loosen, and unravel it strand by strand. As the knot shrinks, objects trapped inside are freed (houses, cars, landmarks, characters with quests). Upgrades: bare hands → hooks → winches → untangling drones. End goal: fully unravel it and discover what's at the center of the knot.
+3. Repaint the City 🎨
+A villain drained all color from a massive gray city. With a tiny brush, you repaint everything: every wall, bench, car, and leaf. Color spreads visibly as you work, and districts "come alive" when fully painted (music, NPCs, minigames unlock). Upgrades: brush → roller → spray gun → paint drone swarm → color bombs. End goal: 100% repaint the city and confront the villain.
+All three keep the winning formula: absurdly large singular goal, satisfying visible progress, layered discoveries, and a deep upgrade tree (in-game currency + Robux tiers).
+Which direction do you like? I'll then write the complete blueprint with core loop, upgrade tiers, milestones, monetization, and prestige system.
+
+
+I actually like all of these ideas very much, but I think the first idea about cleaning a medieval kingdom using shears is the best one. Let's use that.
+
+
+Excellent choice! Here's the complete blueprint.
+Game Concept: "Mow the Kingdom"
+The Hook: The Kingdom of Verdania has been abandoned for 100 years and is now buried under an ocean of overgrowth: 50,000,000 blades of grass. Armed with nothing but rusty shears, you snip your way across the land to uncover roads, villages, farms, and finally the royal castle. Fully restore the kingdom, and the crown is yours.
+Why it works:
+
+Instantly readable goal with viral potential ("I mowed an ENTIRE KINGDOM")
+Progress is the map itself: every cleared tile stays cleared, and restored zones visibly come alive
+Discovery buried under the grass keeps the grind exciting
+
+Core Loop (30-second cycle)
+
+Snip grass with your tool (click/hold, AoE grows with upgrades)
+Collect Clippings (in-game currency) that pop out of cut grass
+Discover items hidden in the overgrowth: coins, chests, relics, trapped NPCs
+Spend Clippings on upgrades → cut wider, faster, stronger
+Zone fully cleared → restoration event → new zone unlocks → repeat, stronger
+
+Progression & Upgrades
+Clipping upgrades (in-game currency):
+
+Tool tiers (15 tiers): Rusty Shears (1 blade/snip) → Sickle → Scythe → Push Mower → Horse-Drawn Mower → Steam Mower → Riding Mower → Mechanized Harvester → Robo-Mower (massive AoE)
+Swing speed and cut radius
+Movement: boots → horse → cart → mount upgrades
+Auto-mowers: deployable units (goats! sheep! robot mowers) that graze zones passively, even offline (capped)
+Luck: better odds of finding rare items under grass, "Golden Blade" crits (10x Clippings)
+
+Robux upgrades (extreme tier):
+
+Gamepasses: 2x Clippings, VIP Royal Scythe (permanent 3x), Auto-Collect, Extra Goat Slots, Teleport to any zone
+Dev products: timed boosts (2x for 30 min), Clipping packs, "Grass Bomb" (instantly clears a huge circle with a satisfying explosion of confetti and clippings)
+Rule: everything Robux buys is also earnable free, just slower. Free players stay engaged, paying players skip grind guilt-free.
+
+Zone & Restoration System (the retention engine)
+The kingdom is split into zones, each gated by the previous one's completion. Clearing a zone triggers a restoration cutscene: buildings repair themselves, flowers bloom, lights turn on, NPCs return with quests.
+
+
+
+Zone
+Reveal & unlock
+
+
+
+Village Outskirts (tutorial)
+First NPC freed: the Old Gardener, your guide
+
+
+Farmlands
+Unlock goat auto-mowers; barn shop opens
+
+
+The Royal Road
+Fast-travel carts between cleared zones
+
+
+Riverside Village
+NPC quests, daily contracts board
+
+
+The Hedge Maze
+Puzzle zone: rare chests, first pet egg
+
+
+Dark Forest Edge
+Tougher "ironweed" grass, needs Tier 8+ tools
+
+
+Castle Town
+Marketplace, cosmetics shop, leaderboard plaza
+
+
+The Castle
+Throne room: claim the crown... and find the King's map showing more overgrown kingdoms beyond the mountains (prestige)
+
+
+Prestige ("New Kingdom"): claiming the crown awards a permanent multiplier + exclusive crown cosmetic, then unlocks the next kingdom: Desert Kingdom (cacti), Frost Kingdom (frozen grass), Shadow Kingdom (glowing nightgrass). Each 10x bigger. Infinite scaling.
+Retention & Social
+
+Shared server kingdom: everyone mows the same map together, server-wide zone celebrations. Plus a private kingdom for solo pace
+Pets: hatched from eggs found under grass; they mow and collect alongside you
+Daily rewards, streaks, quests ("Cut 5,000 blades today")
+Leaderboards: all-time blades cut, fastest zone clears, richest player
+Events: "Regrowth Weekend" (grass partially regrows, but 5x Clippings), seasonal grass skins (pumpkin patch, snow)
+
+Aesthetic
+Bright, chunky low-poly medieval style. Heavy "juice": grass pops with particles and sound on every cut, satisfying number popups, screen shake on big AoE clears, gentle music that swells when a zone is restored.
+
+Want me to commit this as docs/GAME_DESIGN.md in your repo? Then we can move to the technical plan: Rojo project structure, data persistence, and the core mowing system.
+
+
+Okay, I like everything for the most part, but there are a few changes I would like to make: first, in order to make progression feel real and smooth, there needs to be a significant amount of small upgrades the player can get using clippings that each have levels, giving the player small benefits that add up over time; this can be in addition to the other upgrades you suggested in the blueprint. Second, there needs to be more use with robux, like buying each "big" upgrade and "small" upgrade with small or medium amounts of robux, and anything else you can think of. Finally, I don't really like the shared kingdom map idea, I prefer the map to be individual for each player, not one community effort. If you need to adjust the size of the kingdoms, do so, and do it for whatever else you need to.
+
+
+Updated blueprint with all three changes integrated.
+Change 1: Small Upgrade System ("Kingdom Skills")
+In addition to the big tool tiers, a leveled micro-upgrade tree purchasable with Clippings. Each has 25-100 levels with small per-level gains and gently scaling costs, so there's always something affordable to buy:
+
+Sharp Blades (+2% cut power per level, 100 levels)
+Quick Hands (+1% swing speed per level, 50 levels)
+Wide Arc (+0.5% cut radius per level, 50 levels)
+Swift Boots (+1% walk speed per level, 30 levels)
+Clipping Magnet (+2% collect range per level, 40 levels)
+Greener Thumb (+1% Clipping value per level, 100 levels)
+Lucky Snips (+0.2% crit chance per level, 50 levels)
+Golden Touch (+2% crit multiplier per level, 50 levels)
+Goat Whisperer (+1% auto-mower speed per level, 50 levels)
+Deep Pockets (+2% offline earnings cap per level, 25 levels)
+Treasure Sense (+1% rare find chance per level, 50 levels)
+Endurance (+1% sprint duration per level, 30 levels)
+
+This gives hundreds of cheap dopamine hits between big tool purchases, which is exactly what smooths the progression curve.
+Change 2: Expanded Robux Integration
+Everything remains earnable free; Robux is the skip lane at every scale:
+
+Buy any big upgrade directly: each tool tier, mount, and auto-mower purchasable for small-to-medium Robux amounts (price scales with tier, e.g., 25 R$ early tiers → 400 R$ top tiers)
+Buy small upgrade levels: "+10 levels" bundles for any Kingdom Skill (small Robux cost), or "Max this skill" (medium)
+Skip tokens: instantly complete a zone's remaining grass (price scales with zone)
+Gamepasses: 2x Clippings, VIP Royal Scythe, Auto-Collect, Extra Goat Slots, Teleport Anywhere, 2x Offline Earnings, Lucky Pass (2x rare finds)
+Dev products: timed boosts, Clipping packs, Grass Bombs, premium pet eggs (better odds, exclusive pets)
+Cosmetics shop (Robux-only is fine here since it's non-power): tool skins, trails, crowns, pet accessories, victory emotes
+Starter/Mega bundles: one-time value packs (tool tier + skill levels + boost), proven high-conversion
+Prestige skip: buy the permanent prestige multiplier early (premium price)
+
+Change 3: Individual Kingdoms
+
+Every player gets their own private kingdom, progress is 100% personal and persistent
+Kingdom resized from 50M to ~2,000,000 blades for the first kingdom, tuned so a free player reaches the castle in roughly 15-25 hours of play, and prestige kingdoms scale up from there (5-10x each)
+Servers are social hubs: you can visit friends' kingdoms to see their progress (and optionally give a small "helper boost", not actual mowing), compare leaderboards, and show off cosmetics
+Zone restoration events, NPCs, and quests all remain, just per-player now
+Removed: server-wide milestones/celebrations; replaced with personal milestone rewards and global leaderboards for competition
+
+Everything else (zones, prestige kingdoms, pets, dailies, events, aesthetic) stays as designed.
+Ready to commit the full revised blueprint as docs/GAME_DESIGN.md?
+
+
+Yes, let's move on.
+
+
+Committing the full blueprint to your repo now.
+
+
+Blueprint committed. Creating a merge request now.
+
+
+Done! The blueprint is now in your repo:
+
+File: docs/GAME_DESIGN.md
+Merge request: !1 Add game design blueprint for Mow the Kingdom
+
+Merge it whenever you're ready, and we can iterate on the doc anytime as the design evolves.
+Next steps (from the blueprint's open questions):
+
+Technical plan: Rojo project structure and folder layout so your code lives in this repo and syncs into Roblox Studio
+Grass system design: how to render/track ~2M blades performantly (chunked tiles, streaming)
+Data persistence: saving each player's kingdom state, upgrades, and prestige
+Economy tuning: cost/earn-rate curves to hit the 15-25 hour pacing target
+MVP scope: the smallest playable version (one zone, a few tools, basic saving)
+
+Which would you like to tackle first? I'd recommend starting with the technical plan and project scaffold.
+
+
+Alright, let's go with your suggestion and start with  the technical plan and project scaffold first. But keep in mind that you're going to be making this entire game, as I'm new to roblox development. And also, do not expect me to know what to do with what you give/tell me, tell me exactly what to do so I can do it correctly.
+
+
+Building the technical plan and scaffold now, then I'll walk you through exactly what to do on your computer, step by step.
+
+
+The README already exists, so I'm checking the repo contents and adjusting.
+
+
+You can move on.
+
+
+Retrying the commit with the existing README updated instead of created.
+
+
+The scaffold is ready in !2. Here's exactly what to do, in order.
+Step 1: Merge the two merge requests (in your browser)
+
+Open !1 (game blueprint) and click the blue Merge button
+Open !2 (tech plan + scaffold) and click Merge there too
+
+This puts all the files onto your main branch, the "official" version of the project.
+Step 2: Install the tools (one-time, ~20 minutes)
+
+Roblox Studio: go to create.roblox.com, log in with your Roblox account, click Get Studio, run the installer
+Git: download from git-scm.com/downloads, install, click Next through everything (defaults are fine)
+VS Code: download from code.visualstudio.com and install
+
+Step 3: Get the project onto your computer
+
+Open VS Code
+Press Ctrl+Shift+P (this opens the command box)
+Type Git: Clone and press Enter
+Paste this and press Enter: https://gitlab.com/businessmans1984-group/roblox-game.git
+Pick any folder (e.g., Documents), then click Open when it asks. You may need to sign in to GitLab; follow the prompts
+If a popup asks "Do you trust the authors?", click Yes, I trust
+
+Step 4: Set up Rojo (the code-syncing tool)
+
+In VS Code, click the Extensions icon in the left sidebar (looks like four squares)
+Search Rojo, click Install on "Rojo - Roblox Studio Sync" by evaera
+Press Ctrl+Shift+P → type Rojo: Open Menu → Enter. If it offers to install anything, say yes
+In the menu that appears, click Install Roblox Studio Plugin
+
+Step 5: Connect and test
+
+In the same Rojo menu, click default.project.json to start the sync server
+Open Roblox Studio → click New → Baseplate
+In Studio's top toolbar, click the Plugins tab → click the Rojo button → click Connect
+Press F5 (Play). Open View → Output and look for:
+Copy to clipboard
+Insert at cursor
+[Server] Mow the Kingdom server is running!
+[Client] Mow the Kingdom client loaded!
+
+
+In Studio: File → Save to Roblox As... → name it Mow the Kingdom (this saves the place to your Roblox account)
+
+Tell me when you see those messages (or if anything goes wrong at any step, tell me exactly what you see) and I'll start building M1: the core mowing gameplay.
+
+
+Alright, everything went correct. Move onto the next part.
+
+
+Building M1: the core mowing gameplay. This adds the grass meadow, click-to-mow, Clippings, effects, and a working upgrade shop.
+
+
+M1 is ready! Here's exactly what to do:
+Step 1: Merge the code
+Open !3 M1: Core mowing gameplay in your browser and click Merge.
+Step 2: Get the new code onto your computer
+
+Open the project folder in VS Code
+Press Ctrl+Shift+P → type Git: Pull → press Enter (this downloads the new code)
+
+Step 3: Play it
+
+Press Ctrl+Shift+P → Rojo: Open Menu → click default.project.json (starts the sync server, if not already running)
+Open your Mow the Kingdom place in Roblox Studio
+Plugins tab → Rojo → Connect
+Press F5 to play
+
+What you should see
+
+A big field of tall, uneven grass tiles next to spawn
+Hold left-click on grass near your character to mow it: tiles shrink to a light mowed color, green +N popups float up (occasionally a gold ✨ crit worth 10x)
+A Clippings counter at the top center goes up as you mow
+An upgrade panel on the right with three buttons:
+Next Tool: Sickle (100 Clippings) → then Scythe (750)
+Sharp Blades (+2% power per level)
+Quick Hands (+1% speed per level)
+
+
+Buying upgrades makes you visibly mow faster and harder
+
+Mow for a couple minutes, buy a few upgrades, and confirm everything works (or tell me exactly what's broken, including any red text in the Output window).
+Once confirmed, next up is M2: saving progress so players keep their Clippings and upgrades when they rejoin.
+
